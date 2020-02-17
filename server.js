@@ -4,7 +4,7 @@ let querystring = require('querystring');
 
 let app = express();
 
-let redirect_uri = process.env.REDIRECT_URI || 'http://localhost:8888/callback';
+let redirect_uri = process.env.REDIRECT_URI || 'http://localhost:3000/callback';
 
 app.get('/login', function(req, res) {
   res.redirect(
@@ -13,7 +13,7 @@ app.get('/login', function(req, res) {
         response_type: 'code',
         client_id: process.env.SPOTIFY_CLIENT_ID,
         scope:
-          'user-read-recently-played user-read-currently-playing user-library-read',
+          'user-read-recently-played user-read-currently-playing user-library-read user-top-read  streaming',
         redirect_uri,
       })
   );
